@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pantry Route — Privacy Policy</title>
+<style>
+  :root { --canvas:#14181A; --card:#1E2426; --ink:#F2F6F3; --muted:#9DABA0; --green:#1FA855; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--canvas); color:var(--ink);
+    font: 17px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 44rem; margin: 0 auto; padding: 48px 24px 96px; }
+  .mark { width:56px; height:56px; border-radius:16px; background:var(--green);
+    display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px; }
+  h1 { font-size: 2rem; font-weight: 800; margin: 0 0 4px; }
+  .updated { color: var(--muted); font-size: .9rem; margin-bottom: 32px; }
+  h2 { font-size: 1.2rem; font-weight: 700; margin: 36px 0 8px; color: var(--green); }
+  p, li { color: var(--ink); }
+  ul { padding-left: 20px; }
+  .card { background: var(--card); border-radius: 14px; padding: 18px 22px; margin: 18px 0; }
+  a { color: var(--green); }
+</style>
+</head>
+<body>
+<main>
+  <div class="mark">⌂</div>
+  <h1>Pantry Route — Privacy Policy</h1>
+  <p class="updated">Effective August 10, 2026</p>
+
+  <p>Pantry Route is a delivery-operations app used by a food pantry in the
+  Bridgeview, Illinois area. It is used by pantry coordinators and volunteer
+  delivery drivers — not by the people receiving food. This policy explains
+  what information the app handles and how it is protected.</p>
+
+  <h2>What we collect, and why</h2>
+  <ul>
+    <li><strong>Volunteer accounts</strong> (coordinators and drivers): name,
+    email address, phone number, and an optional device token so drivers can
+    receive "you've been assigned a run" notifications. Collected so the
+    pantry can organize deliveries.</li>
+    <li><strong>Household delivery information</strong>, entered by pantry
+    staff on behalf of the families served: a contact name, phone number,
+    street address and map location, delivery notes (e.g., "use the side
+    door"), preferred text-message language, and a record of deliveries
+    made. Collected solely to deliver food and honor the pantry's monthly
+    delivery limits.</li>
+  </ul>
+
+  <div class="card">
+    <strong>What we don't do.</strong> No advertising, no analytics or
+    tracking SDKs, no sale or rental of any information, ever. Driver
+    locations are not tracked — the app never collects GPS positions from
+    anyone's phone.
+  </div>
+
+  <h2>Who processes this information</h2>
+  <ul>
+    <li><strong>Supabase</strong> hosts the database (United States), with
+    row-level security restricting every user to the minimum they need —
+    drivers can only see households on their own active delivery run.</li>
+    <li><strong>Twilio</strong> sends the delivery text messages (phone
+    number and message content only).</li>
+    <li><strong>Mapbox</strong> renders maps; map-tile requests are made by
+    the app. Mapbox telemetry is disabled.</li>
+    <li><strong>Apple / Google / Expo</strong> deliver driver push
+    notifications (a device token and the notification text only).</li>
+  </ul>
+  <p>Each processor receives only what its job requires. None of them may
+  use this information for their own purposes.</p>
+
+  <h2>Retention &amp; deletion</h2>
+  <p>Delivery records are kept for the pantry's operational and grant
+  reporting needs. A household may ask the pantry at any time to correct
+  its information or remove it entirely; a volunteer's account is
+  deactivated (and may be deleted on request) when they stop
+  volunteering.</p>
+
+  <h2>Your choices</h2>
+  <p>If your family receives deliveries and you want your details corrected
+  or removed, or you no longer wish to receive delivery text messages, tell
+  your pantry coordinator — or reply STOP to any delivery text.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: contact the pantry coordinator, or email
+  <a href="mailto:endiaye677@gmail.com">endiaye677@gmail.com</a>.</p>
+</main>
+</body>
+</html>
