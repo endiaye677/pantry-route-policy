@@ -25,7 +25,7 @@
 <main>
   <div class="mark">⌂</div>
   <h1>Pantry Route — Privacy Policy</h1>
-  <p class="updated">Effective August 16, 2026</p>
+  <p class="updated">Effective September 30, 2026</p>
 
   <p>Pantry Route is a delivery-operations app used by a food pantry in the
   Bridgeview, Illinois area. It is used by pantry coordinators and volunteer
@@ -35,9 +35,11 @@
   <h2>What we collect, and why</h2>
   <ul>
     <li><strong>Volunteer accounts</strong> (coordinators and drivers): name,
-    email address, phone number, and an optional device token so drivers can
-    receive "you've been assigned a run" notifications. Collected so the
-    pantry can organize deliveries.</li>
+    email address, phone number, an optional device token so anyone
+    assigned a run can receive "you've been assigned a run" notifications,
+    and the version of the app they last signed in with (so coordinators can
+    see who still needs to update). Collected so the pantry can organize
+    deliveries.</li>
     <li><strong>Household delivery information</strong>, entered by pantry
     staff on behalf of the families served: a contact name, phone number,
     street address and map location, delivery notes (e.g., "use the side
@@ -61,9 +63,13 @@
     <li><strong>Twilio</strong> sends the delivery text messages (phone
     number and message content only).</li>
     <li><strong>Mapbox</strong> renders maps; map-tile requests are made by
-    the app, and route-drawing requests containing only the stop coordinates
-    for a delivery run (no names, addresses, or household details). Mapbox
-    telemetry is disabled.</li>
+    the app, and route-drawing and route-ordering requests containing only
+    the stop coordinates for a delivery run (no names, addresses, or
+    household details). If a driver chooses a custom place for their route
+    to end (for example, their home), the app sends that address to Mapbox
+    to look it up, and its coordinates for route ordering; it is stored only
+    on the driver's phone, is never sent to the pantry's servers, and is
+    erased when they sign out. Mapbox telemetry is disabled.</li>
     <li><strong>Apple / Google / Expo</strong> deliver driver push
     notifications (a device token and the notification text only).</li>
   </ul>
