@@ -25,7 +25,7 @@
 <main>
   <div class="mark">⌂</div>
   <h1>Pantry Route — Privacy Policy</h1>
-  <p class="updated">Effective September 30, 2026 &middot; Updated October 6, 2026</p>
+  <p class="updated">Effective September 30, 2026 &middot; Updated October 29, 2026</p>
 
   <p>Pantry Route is a delivery-operations app used by a food pantry in the
   Bridgeview, Illinois area. It is used by pantry coordinators and volunteer
@@ -40,6 +40,28 @@
     and the version of the app they last signed in with (so coordinators can
     see who still needs to update). Collected so the pantry can organize
     deliveries.</li>
+    <li><strong>Team messages and announcements</strong>: announcements that
+    coordinators post to the team, and messages between a driver and the
+    pantry coordinators (drivers can&rsquo;t message each other). Also
+    reports of inappropriate messages, the people a user has blocked, and
+    optional availability (days a volunteer can drive) and reminder
+    settings. Messages are visible only to that driver and the pantry
+    coordinators. Notifications say who wrote, never what was written.
+    Coordinators review reported messages and can hide them.</li>
+    <li><strong>Reports for funders</strong>: coordinators can produce a
+    monthly summary with totals only (deliveries, households served, and
+    counts by language and ZIP code). It contains no names, addresses, or
+    phone numbers, and any group of fewer than 5 households is hidden so no
+    family can be singled out.</li>
+    <li><strong>Delivery photos (optional)</strong>: if the pantry turns
+    this on, a driver may take a photo after a delivery (for example, of a
+    package left at the door). Location and all other photo details are
+    removed before the photo is saved. Only the driver who took it and the
+    pantry coordinators can see it &mdash; never other drivers &mdash; and
+    only through a link that expires within minutes. Photos are deleted
+    automatically after 30 days. The app uses the camera only when the
+    driver chooses to take a delivery photo and never reads the photo
+    library.</li>
     <li><strong>Household delivery information</strong>, entered by pantry
     staff on behalf of the families served: a contact name, phone number,
     street address and map location, delivery notes (e.g., "use the side
@@ -51,25 +73,90 @@
   <div class="card">
     <strong>What we don't do.</strong> No advertising, no analytics or
     tracking SDKs, no sale or rental of any information, ever. Driver
-    locations are not tracked — the app never collects GPS positions from
-    anyone's phone.
+    locations are not tracked: the pantry's servers never receive or store
+    a driver's location (see &ldquo;Location during navigation&rdquo;).
   </div>
+
+  <h2 id="location">Location during navigation</h2>
+  <p>Drivers can get turn-by-turn directions inside the app. Only then does
+  the app use the phone's location:</p>
+  <ul>
+    <li><strong>On a delivery run, only while in use.</strong> The app asks
+    for location when a driver taps Start on a run, never at launch, and
+    only &ldquo;while using the app&rdquo; &mdash; never &ldquo;always&rdquo;.
+    It then uses the location for three things on that run: to plan the
+    route from where the driver is; to guide them turn by turn from stop to
+    stop; and to keep guiding them to their finish point (the pantry or
+    Home) after the last stop is done. One use is outside a run: in
+    Account &rarr; Home, &ldquo;Use my current location&rdquo; reads the
+    phone's position once, when the driver taps it, to save Home from where
+    they are (the same &ldquo;while using the app&rdquo; permission; nothing
+    is read until they tap). Guidance keeps running with the screen locked
+    (iPhone shows the blue location indicator; Android shows an ongoing
+    &ldquo;navigating&rdquo; notification), and location use stops when
+    guidance ends, when the driver reaches their finish, or when they end
+    it.</li>
+    <li><strong>Never on our servers.</strong> The driver's position is used
+    on the phone to guide them. It is not sent to the pantry's servers, not
+    stored there, and not shown to coordinators or other drivers.</li>
+    <li><strong>Mapbox.</strong> To draw and update the route, the app sends
+    Mapbox coordinates: the driver's current position and the stops (and,
+    if the driver chose one, where the route should end). Requests carry no
+    names, addresses, or household details. Mapbox telemetry is turned off:
+    no location or trip data goes to Mapbox for its own use. Mapbox's
+    software does send a short count when maps or navigation start, which
+    Mapbox uses to bill the pantry: the phone model, system and map-software
+    versions, whether location is allowed, and an ID for this app on the
+    phone. It contains no location.</li>
+    <li><strong>Home stays on the phone.</strong> A driver may save a Home
+    so the route can end there, either from their current position or by
+    typing an address (which is sent to Mapbox to look it up). After that,
+    Home is kept only on the driver's phone, used with Mapbox only as
+    coordinates, never sent to the pantry's servers, and erased when they
+    sign out.</li>
+    <li><strong>Optional.</strong> A driver who declines location can still
+    deliver: the app opens their usual maps app instead.</li>
+  </ul>
 
   <h2>Who processes this information</h2>
   <ul>
-    <li><strong>Supabase</strong> hosts the database (United States), with
-    row-level security restricting every user to the minimum they need —
-    drivers can only see households on their own active delivery run.</li>
+    <li><strong>Supabase</strong> hosts the database and the private
+    storage for delivery photos (United States), with
+    row-level security restricting every user to the minimum they need.
+    Drivers see a household&rsquo;s address and phone number only while it is
+    on their own active delivery run. Before a driver takes on a delivery,
+    they see only the household&rsquo;s first name and last initial and its
+    neighborhood (or city and ZIP code); when two households would look the
+    same, a street name without the house number, or a plain number, tells
+    them apart. On the map, drivers can see the remaining stops of other
+    drivers&rsquo; runs for the same day only as approximate points &mdash;
+    the center of an area about 200&nbsp;m across, with no names or
+    addresses. Such a point can happen to fall near or on a home, and
+    because points disappear as stops are completed, someone watching the
+    map over time could tell roughly when a stop in that area was
+    served.</li>
     <li><strong>Twilio</strong> sends the delivery text messages (phone
-    number and message content only).</li>
-    <li><strong>Mapbox</strong> renders maps; map-tile requests are made by
-    the app, and route-drawing and route-ordering requests containing only
-    the stop coordinates for a delivery run (no names, addresses, or
-    household details). If a driver chooses a custom place for their route
-    to end (for example, their home), the app sends that address to Mapbox
-    to look it up, and its coordinates for route ordering; it is stored only
-    on the driver's phone, is never sent to the pantry's servers, and is
-    erased when they sign out. Mapbox telemetry is disabled.</li>
+    number and message content only) and connects drivers&rsquo; calls to
+    families through the pantry&rsquo;s number, so neither side sees the
+    other&rsquo;s personal number (Twilio receives both numbers to connect
+    the call; calls are not recorded). Replies of STOP, START and HELP are
+    used only to update or answer the household&rsquo;s text preference;
+    the text of other replies is not stored.</li>
+    <li><strong>Mapbox</strong> provides maps, directions and address
+    search. The app requests map tiles; route, navigation and
+    route-ordering requests contain only coordinates (the stops, the
+    driver's current position while navigating, and an optional end point
+    such as the driver's Home), never names, addresses, or household
+    details. Addresses are sent to Mapbox as text only to look them up:
+    when pantry staff type a family's address (through the pantry's server,
+    which also limits how often it can be called), and when a driver types
+    their own Home or another place for their route to end (directly from
+    the phone; it is never sent to the pantry's servers). Mapbox telemetry
+    is turned off. Mapbox's software sends Mapbox a short count when maps
+    or navigation start, used to bill the pantry: the phone model, system
+    and map-software versions, whether location is allowed, and an ID for
+    this app on the phone (not linked to the person's name or account). It
+    contains no location.</li>
     <li><strong>Apple / Google / Expo</strong> deliver driver push
     notifications (a device token and the notification text only).</li>
   </ul>
@@ -78,15 +165,24 @@
 
   <h2 id="sms-consent">SMS Consent</h2>
   <p>Delivery text notifications are operated by <strong>PorSignal
-  LLC</strong> on behalf of the food pantry program. Recipients opt in
-  verbally during in-person registration at the pantry. Staff use this
-  exact consent script:</p>
+  LLC</strong> on behalf of the food pantry program. Recipients opt in when they register for home delivery, on the
+  pantry&rsquo;s registration form or verbally. For verbal consent, staff use
+  this exact script:</p>
   <div class="card">
     &ldquo;Would you like to receive text messages about your food
     deliveries &mdash; a heads-up on delivery day and a message when the
     driver is on the way? You can reply STOP at any time to opt out.&rdquo;
   </div>
-  <p>Only households that say yes receive texts. Message frequency depends
+  <p><strong>Texts from a volunteer driver.</strong> Until the pantry&rsquo;s own
+  texting line is active, a volunteer driver may text a household from the
+  driver&rsquo;s own phone to say they are on the way. The app opens the phone&rsquo;s
+  messaging app with a suggested message; the driver reads it and sends it.
+  Such a text comes from the driver&rsquo;s own number, is never sent
+  automatically, and does not use location. The app records only that a text
+  was started (which household, which delivery, when), never its content.
+  Households that asked for no texts, or that replied STOP, are not texted.</p>
+  <p>Staff record the household&rsquo;s answer, with the date and the
+  staff member who recorded it. Only households that say yes receive texts. Message frequency depends
   on your deliveries (typically 1&ndash;2 messages per delivery day);
   message and data rates may apply.</p>
   <p><strong>Mobile numbers and SMS consent are never shared with or sold
@@ -104,7 +200,13 @@
   reporting needs. A household may ask the pantry at any time to correct
   its information or remove it entirely; a volunteer's account is
   deactivated (and may be deleted on request) when they stop
-  volunteering.</p>
+  volunteering. Deleting your account in the app also deletes the messages
+  you sent, your message thread, reports you filed, your blocks, and your
+  availability and reminder settings. Announcements you posted as a
+  coordinator stay, without your name. Delivery photos are deleted
+  automatically after 30 days, and within an hour when the delivery or the
+  household&rsquo;s record is removed (they can no longer be viewed from
+  the moment of removal).</p>
 
   <h2>Your choices</h2>
   <p>If your family receives deliveries and you want your details corrected
